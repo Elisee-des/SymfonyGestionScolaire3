@@ -1,0 +1,7 @@
+
+{% block content_titre_modale %}
+Ajouter une classe a ce professeur
+{% endblock %}
+<form method="POST" action="{{ path("admin_professeur_ajouter_classe", {id: idProfesseur}) }}" >
+    {{ form_widget(form) }}
+</form>

@@ -1,0 +1,7 @@
+
+{% block content_titre_modale %}
+Ajouter un parent d'eleve
+{% endblock %}
+<form method="POST" action="{{ path("admin_parent_creer") }}" >
+    {{ form_widget(form) }}
+</form>

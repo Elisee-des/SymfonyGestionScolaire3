@@ -1,0 +1,27 @@
+{% extends "base.prof.html.twig" %}
+
+{% block title %}
+	Contact du parent de {{ eleve.nom }} {{ eleve.prenom }}
+{% endblock %}
+
+{% block titre %}
+	Contact du parent de {{ eleve.nom }} {{ eleve.prenom }}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<div class="card">
+					<div class="container">
+						<h4>Contact de Mr {{ eleve.user.nom }}</h4>
+						<h4>Contact telephonique: {{ eleve.user.numero }}</h4>
+						<h4>Contact email: {{ eleve.user.email }}</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

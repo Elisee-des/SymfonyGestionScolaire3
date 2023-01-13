@@ -1,0 +1,79 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Liste des payements de scolarité
+{% endblock %}
+
+{% block titre %}
+	Liste des payements de scolarité
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("admin_payement_creer") }}" title="Cliquez pour faire un payement de frais de scolarité" class="btn btn-inverse btn-actions btn-outline-inverse float-right">
+		<i class="ti-plus"></i>
+	</a>
+	{# <a href="{{ path("admin_ape_editer", {{ id:  }}) }}" title="Cliquez pour faire un payement de l'APE" class="mr-2 btn btn-primary btn-actions btn-outline-primary float-right">APE</a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Eleves</th>
+							<th>Frais</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for payement in payements %}
+							<tr>
+								<td>{{payement.eleve.nom}}
+									{{payement.eleve.prenom}}</td>
+								<td>{{payement.frais}}</td>
+								<td>
+									<a href="{{ path("admin_payement_detail", {"id": payement.id}) }}" title="Voir le detail" class="btn btn-inverse btn-outline-inverse">
+										Detail
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<h3>Historique des derniers payements de l'APE</h3>
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Eleves</th>
+							<th>APE</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for payement in payements %}
+							<tr>
+								<td>{{payement.eleve.nom}}
+									{{payement.eleve.prenom}}</td>
+								<td>{{payement.eleve.ape}}</td>
+								<td>
+									<a href="{{ path("admin_payement_ape_detail", {"id": payement.eleve.id}) }}" title="Voir les details de l'APE" class="btn btn-inverse btn-outline-inverse">
+										Detail
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.prof.html.twig" %}
+
+{% block title %}
+	Les Notes de
+	{{ eleve.nom }}
+	{{ eleve.prenom }}
+{% endblock %}
+
+{% block titre %}
+	Les Notes de
+	{{ eleve.nom }}
+	{{ eleve.prenom }}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Matiere</th>
+							<th>Notes</th>
+							<th>Devoir</th>
+							<th>Trimestre</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						{# {% for matiere in matieres %}
+							<tr>
+								<td>{{matiere.nom}}</td>
+							</tr>
+						{% endfor %} #}
+						</tr>
+						{% for note in notes %}
+							<tr>
+								<td>{{note.matiere.nom}}</td>
+								<td>{{note.note}}</td>
+								<td>{{note.devoir}}</td>
+								<td>{{note.trimestre.nom}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

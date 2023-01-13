@@ -1,0 +1,10 @@
+{% block content_titre_modale %}
+Faire un payement de frais de scolarité
+{% endblock %}
+<form method="POST" action="{{ path("admin_payement_creer") }}" >
+    {{ form_widget(form) }}
+</form>
+
+{% block javascripts %}
+
+{% endblock %}

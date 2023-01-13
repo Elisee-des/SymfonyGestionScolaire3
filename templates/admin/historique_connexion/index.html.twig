@@ -1,0 +1,41 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Historique de connection des professeurs et parents
+{% endblock %}
+
+{% block titre %}
+	Historique de connection des professeurs et parents
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_eleve_creer") }}" title="Cliquez pour ajouter un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>NomPrenom</th>
+							<th>Connexion</th>
+							<th>adresseIp</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for historiqueConnexion in historiqueConnexions %}
+							<tr>
+								<td>{{historiqueConnexion.nom}} {{historiqueConnexion.prenom}}</td>
+								<td>{{historiqueConnexion.dateConnexion|date("m/d/Y")}}</td>
+								<td>{{historiqueConnexion.adresseIp}}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

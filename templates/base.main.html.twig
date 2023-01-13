@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="{{ asset("vendors/owl-carousel/css/owl.carousel.min.css") }}">
+		<link rel="stylesheet" href="{{ asset("vendors/owl-carousel/css/owl.theme.default.css") }}">
+		<link rel="stylesheet" href="{{ asset("vendors/mdi/css/materialdesignicons.min.css") }}">
+		<link rel="stylesheet" href="{{ asset("vendors/aos/css/aos.css") }}">
+		<link rel="stylesheet" href="{{ asset("css/style.min.css") }}">
+	</head>
+	<body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
+		<header id="header-section">
+			{% include "main/includes/navbar.html.twig" %}
+		</header>
+		<div class="banner">
+			<div class="container">
+				<h1 class="font-weight-semibold">Search engine optimisation &<br>Marketing.</h1>
+				<h6 class="font-weight-normal text-muted pb-3">Simple is a simple template with a creative design that solves all your marketing and SEO queries.</h6>
+				<div>
+					<button class="btn btn-opacity-light mr-1">Get started</button>
+					<button class="btn btn-opacity-success ml-1">Learn more</button>
+				</div>
+				<img src="{{ asset("images/Group171.svg") }}" alt="" class="img-fluid">
+			</div>
+		</div>
+		<div class="content-wrapper">
+			<div class="container"> {% block body %}{% endblock %}
+      {% include "main/includes/footer.html.twig" %}
+				</div>
+			</div>
+			<script src="{{ asset("vendors/jquery/jquery.min.js") }}"></script>
+			<script src="{{ asset("vendors/bootstrap/bootstrap.min.js") }}"></script>
+			<script src="{{ asset("vendors/owl-carousel/js/owl.carousel.min.js") }}"></script>
+			<script src="{{ asset("vendors/aos/js/aos.js") }}"></script>
+			<script src="{{ asset("js/landingpage.js") }}"></script>
+		</body>
+	</html>

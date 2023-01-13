@@ -1,0 +1,47 @@
+
+        $requete2 = "SELECT * FROM eleve e WHERE e.annee_id=:idAnnee";
+
+        $requete3 = "SELECT * FROM classe c WHERE c.annee_id=:idAnnee";
+
+        $requete4 = "SELECT * FROM eleve e, note n WHERE e.annee_id=:idAnnee AND e.id = n.eleve_id";
+
+        $requete5 = "SELECT SUM(a.heur_abscence) FROM eleve e, abscence a WHERE e.annee_id=:idAnnee AND e.id=a.eleve_id";
+
+        $requete6 = "SELECT * FROM user u WHERE u.is_surveillant=1";
+
+        $requete7 = "SELECT * FROM classe WHERE classe.annee_id=:idAnnee";
+
+        $requete8 = "SELECT * FROM eleve WHERE eleve.annee_id=:idAnnee";
+
+        $requete9 = " ";
+
+
+         $resultat2 = $connexion->executeQuery($requete2, ["idAnnee"=>$idAnnee]);
+        $resultat3 = $connexion->executeQuery($requete3, ["idAnnee"=>$idAnnee]);
+        $resultat4 = $connexion->executeQuery($requete4, ["idAnnee"=>$idAnnee]);
+        $resultat5 = $connexion->executeQuery($requete5, ["idAnnee"=>$idAnnee]);
+        $resultat5 = $connexion->executeQuery($requete5, ["idAnnee"=>$idAnnee]);
+        $resultat6 = $connexion->executeQuery($requete6, ["idAnnee"=>$idAnnee]);
+        $resultat7 = $connexion->executeQuery($requete7, ["idAnnee"=>$idAnnee]);
+        $resultat8 = $connexion->executeQuery($requete8, ["idAnnee"=>$idAnnee]);
+        $resultat9 = $connexion->executeQuery($requete9, ["idAnnee"=>$idAnnee]);
+
+
+        $data2 = $resultat2->fetchAllAssociative();
+        $data3 = $resultat3->fetchAllAssociative();
+        $data4 = $resultat4->fetchAllAssociative();
+        $data5 = $resultat5->fetchAllAssociative();
+        $data6 = $resultat6->fetchAllAssociative();
+        $data7 = $resultat7->fetchAllAssociative();
+        $data8 = $resultat8->fetchAllAssociative();
+        $data9 = $resultat9->fetchAllAssociative();
+
+
+        "etat2"=>$data2,
+            "etat3"=>$data3,
+            "etat4"=>$data4,
+            "etat5"=>$data5,
+            "etat6"=>$data6,
+            "etat7,"=>$data7,
+            "etat8,"=>$data8,
+            "etat9,"=>$data9,

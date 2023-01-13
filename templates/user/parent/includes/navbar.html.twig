@@ -1,0 +1,42 @@
+<nav class="pcoded-navbar">
+	<div class="sidebar_toggle">
+		<a href="#">
+			<i class="icon-close icons"></i>
+		</a>
+	</div>
+	<div class="pcoded-inner-navbar main-menu">
+		<div class="">
+			<div class="main-menu-header">
+				<img class="img-80 img-radius" src="{{ asset("asset/images/avatar-4.jpg") }}" alt="User-Profile-Image">
+				<div class="user-details">
+				<span>Mr/Mne {{app.user.nom}} {{app.user.prenom}}</span>
+				</div>
+			</div>
+			<br>
+		</div>
+        <div class="pcoded-navigation-label">Navigation</div>
+		<ul class="pcoded-item pcoded-left-item"><br><hr>
+			<li class="{{ active(["user_parent_eleve_dashboard", "user_parent_eleve_annee_liste", "user_parent_eleve_liste_eleves", "user_parent_eleve_liste_trimestres", "user_parent_eleve_liste_notes"]) }}">
+				<a href="{{ path("user_parent_eleve_annee_liste") }}" class="waves-effect waves-dark">
+					<span class="pcoded-micon">
+						<i class="ti-user"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Mes Eleves</span>
+					<span class="pcoded-mcaret"></span>
+				</a>
+			</li>
+			<li class="{{ active(["user_parent_professeur_annee_liste", "user_parent_professeur_liste_eleves", "user_parent_professeur_liste_professeurs"]) }}">
+				<a href="{{ path("user_parent_professeur_annee_liste") }}" class="waves-effect waves-dark">
+					<span class="pcoded-micon">
+						<i class="ti-id-badge"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Professeurs</span>
+					<span class="pcoded-mcaret"></span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</nav>

@@ -1,0 +1,38 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Listes des parents d'eleves de cette annee
+	{{ annee.nom }}
+{% endblock %}
+
+{% block titre %}
+	Listes des parents d'eleves de cette annee
+	{{ annee.nom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_annee_creer") }}" title="Cliquez pour Creer une annee scolaire" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card p-3"><br>
+		<div class="card p-4"><br>
+			<div class="content">
+				<div class="card p-3">
+					<div>
+						<fieldset>
+							{% for parents in parent %}
+							<label for="parent">
+								<label>
+								<input name="parent" type="checkbox" value="">
+								<span class="text-inverse">I read and accept</span>
+							</label>
+							{% endfor %}
+						</fieldset>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

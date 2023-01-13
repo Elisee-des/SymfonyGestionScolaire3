@@ -1,0 +1,63 @@
+{% extends "base.user.html.twig" %}
+
+{% block title %}
+	Liste de vos enfants inscripts a l'eleve academique {{ annee.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste de vos enfants inscripts a l'eleve academique {{ annee.nom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_eleve_creer") }}" title="Cliquez pour Ajouter un eleve a un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<div class="row">
+				<div class="col-lg-6">
+					<table id="example" class="table table-striped nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Nom Prenom</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for eleve in eleves %}
+								<tr>
+									<td>{{ eleve.nom }} {{ eleve.prenom }}</td>
+									<td>
+										<a
+											href="{{ path("user_parent_professeur_liste_professeurs", {"idClasse": eleve.classe_id, "idEleve": eleve.id}) }}" title="Cliquez pour voir les notes par trimestre" class="btn btn-primary btn-outline-primary">
+											Voir les profs
+										</a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="col-lg-6">
+					<table id="example" class="table table-striped nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Classes</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for classe in classes %}
+								<tr>
+									<td > En classe de  <a class="btn btn-inverse btn-outline-inverse">{{ classe.nom }}</a> </td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

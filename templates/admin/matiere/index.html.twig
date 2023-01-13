@@ -1,0 +1,48 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Gestion des matieres par annee puis par classe
+{% endblock %}
+
+{% block titre %}
+	Gestion des matieres par annee puis par classe
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("admin_matiere_creer_matiere") }}" title="Ajouter un matiere" class="btn btn-inverse btn-outline-inverse btn-actions float-right"><i class="ti-plus"></i></a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Annee</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for annee in annees %}
+							<tr>
+								<td>{{annee.nom}}</td>
+								<td>
+									{# <a
+										href="{{ path("admin_annee_editer", {"id": annee.id}) }}" title="Editer cette annee" class="btn btn-inverse btn-actions btn-outline-inverse">
+										<i class="ti-pencil-alt"></i>
+									</a> #}
+									<a
+										href="{{ path("admin_matiere_liste_classe", {"id": annee.id}) }}" title="Cliquez pour voir les classes et les matieres affilié a chaque classe" class="btn btn-primary btn-outline-primary" >
+										<i class="ti-receipt"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

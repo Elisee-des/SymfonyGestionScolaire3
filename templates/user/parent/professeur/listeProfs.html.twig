@@ -1,0 +1,46 @@
+{% extends "base.user.html.twig" %}
+
+{% block title %}
+	Liste des Professeurs de {{ eleve.nom }} {{ eleve.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste des Professeurs de {{ eleve.nom }} {{ eleve.nom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("user_parent_eleve_liste_prof") }}" title="Cliquez pour voir les professeurs de cet eleves" class="btn btn-inverse btn-outline-inverse float-right">Voir Professeur</a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Professeurs</th>
+							<th>Matieres</th>
+							<th>Contact</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for professeur in professeurs %}
+							<tr>
+								<td>Mr {{professeur.nom}}</td>
+								<td>{{professeur.matiere.nom}}</td>
+								<td>
+									{{professeur.numero}}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	{# <a href="{{ path("user_parent_professeur_liste_eleves", {id: eleve.annee.id}) }}" title="Cliquez pour revenir en arriere" class="mr-2 btn btn-primary btn-outline-primary float-left">
+		Retour a la liste des eleves
+</a><br><br> #}
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

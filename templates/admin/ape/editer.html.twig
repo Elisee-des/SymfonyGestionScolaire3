@@ -1,0 +1,7 @@
+{% block content_titre_modale %}
+Editer le payement de l'APE de {{ eleve.nom }} {{ eleve.prenom }}
+
+{% endblock %}
+<form method="POST" action="{{ path("admin_ape_editer", {id: eleve.id}) }}" >
+    {{ form_widget(form) }}
+</form>

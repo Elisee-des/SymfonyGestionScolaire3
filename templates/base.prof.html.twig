@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+		<meta name="keywords" content="bootstrap, bootstrap admin template, admin theme, admin dashboard, dashboard template, admin template, responsive"/>
+		<meta
+		name="author" content="Codedthemes"/>
+		<!-- Favicon icon -->
+		<link
+		rel="icon" href="{{ asset("assetss/images/favicon.ico") }}" type="image/x-icon">
+		<!-- Google font-->
+		<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+		<!-- waves.css -->
+		<link
+		rel="stylesheet" href="{{ asset("assetss/pages/waves/css/waves.min.css") }}" type="text/css" media="all">
+		<!-- Required Fremwork -->
+		<link
+		rel="stylesheet" type="text/css" href="{{ asset("assetss/css/bootstrap/css/bootstrap.min.css") }}">
+		<!-- waves.css -->
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css">
+		<link
+		rel="stylesheet" href="{{ asset("assetss/pages/waves/css/waves.min.css") }}" type="text/css" media="all">
+		<!-- themify icon -->
+		<link
+		rel="stylesheet" type="text/css" href="{{ asset("assetss/icon/themify-icons/themify-icons.css") }}">
+		<!-- font-awesome-n -->
+		<link rel="stylesheet" type="text/css" href="{{ asset("assetss/css/font-awesome-n.min.css") }}">
+		<link
+		rel="stylesheet" type="text/css" href="{{ asset("assetss/css/font-awesome.min.css") }}">
+		<!-- scrollbar.css -->
+		<link
+		rel="stylesheet" type="text/css" href="{{ asset("assetss/css/jquery.mCustomScrollbar.css") }}">
+		<!-- Style.css -->
+		<link rel="stylesheet" type="text/css" href="{{ asset("assetss/css/style.css") }}">
+	</head>
+
+	<body>
+		<!-- Pre-loader start -->
+		<div class="theme-loader">
+			<div class="loader-track">
+				<div class="preloader-wrapper">
+					<div class="spinner-layer spinner-blue">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+					<div class="spinner-layer spinner-red">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+
+					<div class="spinner-layer spinner-yellow">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+
+					<div class="spinner-layer spinner-green">
+						<div class="circle-clipper left">
+							<div class="circle"></div>
+						</div>
+						<div class="gap-patch">
+							<div class="circle"></div>
+						</div>
+						<div class="circle-clipper right">
+							<div class="circle"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Pre-loader end -->
+		<div id="pcoded" class="pcoded">
+			<div class="pcoded-overlay-box"></div>
+			<div class="pcoded-container navbar-wrapper">
+				{% include "user/professeur/includes/navbar1.html.twig" %}
+				<div class="pcoded-main-container">
+					<div class="pcoded-wrapper">
+						{% include "user/professeur/includes/navbar2.html.twig" %}
+						<div
+							class="pcoded-content">
+							<!-- Page-header start -->
+							<div class="page-header">
+								<div class="page-block">
+									<div class="row align-items-center">
+										<div class="col-md-8">
+											<div class="page-header-title">
+												<h5 class="m-b-10">Mon Compte Professeur</h5>
+												<p class="m-b-0">Bienvenu chez SysScol</p>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<ul class="breadcrumb">
+												<li class="breadcrumb-item">
+													<i class="fa fa-key"></i>
+												</li>
+												<li class="breadcrumb-item">
+													<a href="{{ path("app_logout") }}">Deconnexion</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Page-header end -->
+							<div
+								class="pcoded-inner-content">
+								<!-- Main-body start -->
+								<div class="main-body">
+									<div
+										class="page-wrapper">
+										<!-- Page-body start -->
+										<div class="page-body">
+											<div class="container">
+												<div class="content">
+													<div class="clearfix mb-3">
+														<div class="row">
+															<div class="col-6">
+																<h2>
+																	<strong>
+																		{% block titre %}{% endblock %}
+																	</strong>
+																</h2>
+															</div>
+															<div class="col-6">
+																<h2>
+																	{% block boutons %}{% endblock %}
+																</h2>
+															</div>
+														</div>
+													</div>
+												</div>
+												{% block body %}{% endblock %}
+											</div>
+										</div>
+										<!-- Page-body end -->
+									</div>
+									{# <div id="styleSelector"> </div> #}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="{{ asset("assetss/js/jquery/jquery.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("assetss/js/jquery-ui/jquery-ui.min.js") }} "></script>
+		<script type="text/javascript" src="{{ asset("assetss/js/popper.js/popper.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("assetss/js/bootstrap/js/bootstrap.min.js") }}"></script>
+		<!-- waves js -->
+		<script src="{{ asset("assetss/pages/waves/js/waves.min.js") }}"></script>
+		<!-- jquery slimscroll js -->
+		<script type="text/javascript" src="{{ asset("assetss/js/jquery-slimscroll/jquery.slimscroll.js") }}"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+		<!-- slimscroll js -->
+		<script src="{{ asset("assetss/js/jquery.mCustomScrollbar.concat.min.js") }}"></script>
+
+		<!-- menu js -->
+		<script src="{{ asset("assetss/js/pcoded.min.js") }}"></script>
+		<script src="{{ asset("assetss/js/vertical/vertical-layout.min.js") }}"></script>
+
+		<script type="text/javascript" src="{{ asset("assetss/js/script.js") }}"></script>
+	</body>
+</html></body></html>

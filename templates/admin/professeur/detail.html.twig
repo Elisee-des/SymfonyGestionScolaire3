@@ -1,0 +1,71 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Detail du professeur
+	{{ professeur.nom }}
+	{{ professeur.prenom }}
+{% endblock %}
+
+{% block titre %}
+	Detail du professeur
+	{{ professeur.nom }}
+	{{ professeur.prenom }}
+{% endblock %}
+{% block boutons %}
+	<a
+		href="{{ path("admin_professeur_editer_mot_de_passe", {"id": professeur.id}) }}" title="Cliquez pour editer le mot de passe de cet professeur" class="btn btn-primary btn-outline-primary" onclick="return confirm('Voulez vous modifier le mot de passe cet professeur ?')">
+		<i class="ti-settings"></i>
+	</a>
+	<a
+		href="{{ path("admin_professeur_supprimer", {"id": professeur.id}) }}" title="Cliquez pour supprimer cet procefesseur" class="btn btn-danger btn-outline-danger" onclick="return confirm('Etes vous sur de vouloir supprimer cet professeur ? les Matieres de ce professeur seront supprimer avec cette action. Cette action est irreversible')">
+		<i class="ti-trash"></i>
+	</a>
+	<a
+		href="{{ path("admin_professeur_ajouter_classe", {"id": professeur.id}) }}" title="Cliquez pour ajout une classe a cet procefesseur" class="btn btn-inverse btn-actions btn-outline-inverse">
+		<i class="ti-plus"></i>
+	</a>
+	<a
+		href="{{ path("admin_professeur_ajouter_matiere", {"id": professeur.id}) }}" title="Cliquez pour ajout une matiere a cet procefesseur" class="btn btn-info btn-actions btn-outline-info">
+		<i class="ti-plus"></i>
+	</a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<div class="container">
+					<br><h4>Nom:
+						{{professeur.nom}}
+					</h4><hr>
+					<h4>Prenom:
+						{{professeur.prenom}}
+					</h4><hr>
+					<h4>Module d'enseignement:
+						{{professeur.matiere.nom}}
+					</h4><hr>
+					<h4>Numero:
+						{{professeur.numero}}
+					</h4><hr>
+					<h4>Email:
+						{{professeur.email}}
+					</h4><hr>
+					<h4>Date d'ajout:
+						{{professeur.dateCreation|date("m/d/Y")}}
+					</h4><hr>
+					<h4>Classe tenue:</h4><br>
+					{% for classe in classes %}
+						<strong>{{ classe }}, </strong>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+					<a
+						href="{{ path("admin_professeur_liste") }}" class="btn btn-inverse btn-outline-inverse">
+						{# <i class="mdi mdi-pencil"></i> #}
+						Retour la liste de professeur
+					</a>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

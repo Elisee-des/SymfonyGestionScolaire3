@@ -1,0 +1,65 @@
+{% extends "base.user.html.twig" %}
+
+{% block title %}
+	{# Liste des notes du
+	{{ trimestre.nom }}
+	de
+	{{ eleve.nom }}
+	{{ eleve.prenom }} #}
+{% endblock %}
+
+{% block titre %}
+	{# Liste des notes du
+	{{ trimestre.nom }}
+	de
+	{{ eleve.nom }}
+	{{ eleve.prenom }} #}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_trimestre_creer") }}" title="Cliquez pour Ajouter un trimestre a un trimestre" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+			<div class="row">
+				<div class="col-lg-6">
+					<table id="example" class="table table-striped nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Matieres</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for matiere in matieres %}
+								<tr>
+									<td>{{ matiere.nom }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				<div class="col-lg-6">
+					<table id="example" class="table table-striped nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for note in notes %}
+								<tr>
+									<td>{{ note.note }}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+		</div>
+		
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

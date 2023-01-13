@@ -1,0 +1,213 @@
+<nav class="pcoded-navbar">
+	<div class="sidebar_toggle">
+		<a href="#">
+			<i class="icon-close icons"></i>
+		</a>
+	</div>
+	<div class="pcoded-inner-navbar main-menu">
+		<div class="">
+			<div class="main-menu-header">
+				<img class="img-40 img-radius" src="{{ asset("assets/images/avatar-4.jpg") }}" alt="User-Profile-Image">
+				<div class="user-details">
+					<span>John Doe</span>
+					<a href="{{ path("app_logout") }}">
+						<span id="more-details">Deconnexion
+						</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div class="pcoded-navigation-label">Navigation</div>
+		<ul class="pcoded-item pcoded-left-item">
+			<li class="{{ active(["admin_dashboard"]) }}">
+				<hr>
+				<a href="{{ path("admin_dashboard") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Tableau de board</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_administration_accueil", "admin_administration_titre", "admin_administration_soustitre", "admin_administration_fonctionnement", "admin_administration_sousfonctionnement", "admin_administration_titre1", "admin_administration_soustitre1", "admin_administration_titre2", "admin_administration_soustitre2", "admin_administration_titre3", "admin_administration_soustitre3", "admin_administration_description1", "admin_administration_sousdescription1", "admin_administration_description2", "admin_administration_sousdescription2", "admin_administration_contact", "admin_administration_localisation", "admin_administration_qui_somme_nous" ]) }}">
+				<a href="{{ path("admin_administration_accueil") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Administration du site</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_inscription_accueil", "admin_inscription", "admin_inscript_liste"]) }}">
+				<a href="{{ path("admin_inscription_accueil") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Inscription</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_annee_liste"]) }}">
+				<a href="{{ path("admin_annee_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Annee Scolaire</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_surveillant_liste", "admin_surveillant_detail", "admin_surveillant_editer_mot_de_passe"]) }}">
+				<a href="{{ path("admin_surveillant_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Surveillants</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_professeur_liste", "admin_professeur_detail", "admin_professeur_editer_mot_de_passe"]) }}">
+				<a href="{{ path("admin_professeur_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Professeurs</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_parent_liste", "admin_parent_detail", "admin_parent_editer_mot_de_passe"]) }}">
+				<a href="{{ path("admin_parent_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Parents</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_classe_annee", "admin_classe_liste_des_classes", "admin_classe_liste_des_eleves", "admin_classe_", "admin_classe_"]) }}">
+				<a href="{{ path("admin_classe_annee") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Classe</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_trimestre_annee", "admin_trimestre_detail"]) }}">
+				<a href="{{ path("admin_trimestre_annee") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Trimestre</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_eleve_liste", "admin_eleve_annee_detail", "admin_eleve_annee_classe_detail", "admin_eleve_detail", "admin_eleve_"]) }}">
+				<a href="{{ path("admin_eleve_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Eleve</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_payement_liste"]) }}">
+				<a href="{{ path("admin_payement_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Payements</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_matiere_annee", "admin_matiere_liste_classe", "admin_matiere_liste_matiere", "admin_matiere_liste_notes"]) }}">
+				<a href="{{ path("admin_matiere_annee") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Matiere</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_abscence_liste"]) }}">
+				<a href="{{ path("admin_abscence_liste") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Abscence</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_note_annee", "admin_note_liste_trimestre", "admin_note_liste_classe", "admin_note_liste_matiere", "admin_note_liste_note", "admin_note_liste_eleve", "admin_note_ajout", "admin_note_ajout_continuer"]) }}">
+				<a href="{{ path("admin_note_annee") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Note</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_contact_parent", "admin_contact_professeur", "admin_contact_surveillant"]) }}">
+				<a href="{{ path("admin_contact_acceuil") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Contacts</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_etat"]) }}">
+				<a href="{{ path("admin_etat") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Etat</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+			<li class="{{ active(["admin_historique_connexion"]) }}">
+				<a href="{{ path("admin_historique_connexion") }}">
+					<span class="pcoded-micon">
+						<i class="ti-home"></i>
+						<b>D</b>
+					</span>
+					<span class="pcoded-mtext" data-i18n="nav.dash.main">Historique Connexion</span>
+					<span class="pcoded-mcaret"></span>
+					<hr>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>

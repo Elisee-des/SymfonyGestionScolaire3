@@ -1,0 +1,49 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Gestion des Timestres en fonction des anneés
+{% endblock %}
+
+{% block titre %}
+	Gestion des Timestres en fonction des anneés
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("admin_note_ajout") }}" title="Cliquez pour ajouter des notes a toutes un classe en une action" class="btn btn-inverse  btn-actions btn-outline-inverse float-right"><i class="ti-notepad"></i></a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Annee</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for annee in annees %}
+							<tr>
+								<td>{{annee.nom}}</td>
+								{# <td>{{annee.annee}}</td> #}
+								<td>
+									<a
+										href="{{ path("admin_note_liste_trimestre", {"id": annee.id}) }}" title="Cliquez pour voir les trimestre de cette annee" class="btn btn-primary btn-outline-primary">
+										<i class="ti-receipt"></i>
+									</a>
+									{# <a
+										href="{{ path("admin_annee_supprimer", {"id": annee.id}) }}" title="Supprimer cette anneé scolaire" class="btn btn-danger btn-outline-danger"  onclick="return confirm('Etes vous sur de vouloir supprimer cet anneé ? les Trimesre de cet anneé seront supprimer avec cette action. Cette action est irreversible')">
+										<i class="ti-trash"></i>
+									</a> #}
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

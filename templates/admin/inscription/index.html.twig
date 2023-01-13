@@ -1,0 +1,53 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Inscription academique
+{% endblock %}
+
+{% block titre %}
+	Inscription academique
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_inscript_liste") }}" title="Cliquez pour voir les inscriptions" class="btn btn-inverse btn-outline-inverse float-right">Liste des Inscripts</a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				{{ form(form) }}
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="content">
+					<table id="example" class="table table-striped nowrap" style="width:100%">
+						<thead>
+							<tr>
+								<th>Nom Prenom</th>
+								<th>Date</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for eleve in eleves %}
+								<tr>
+									<td>{{eleve.nom}}
+										{{eleve.prenom}}</td>
+									<td>{{eleve.dateCreation|date("d/m/Y")}}</td>
+									<td>
+										<a href="{{ path("admin_editer_inscription", {"id": eleve.id}) }}" title="Editer cet eleve" class="btn btn-primary btn-outline-primary" >
+											<i class="ti-marker-alt"></i>
+										</a>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+	{% block javascripts %}{% endblock %}

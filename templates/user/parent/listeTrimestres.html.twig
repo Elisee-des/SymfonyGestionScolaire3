@@ -1,0 +1,44 @@
+{% extends "base.user.html.twig" %}
+
+{% block title %}
+	Liste des trimestres de l'annee academique {{ annee.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste des trimestres de l'annee academique {{ annee.nom }}
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("user_parent_professeur_annee_liste") }}" title="Cliquez pour voir les professeurs de cet eleves" class="btn btn-inverse btn-outline-inverse float-right">Voir les Professeurs</a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Trimestres</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for trimestre in trimestres %}
+							<tr>
+								<td>{{trimestre.nom}}</td>
+								<td>
+									<a
+										href="{{ path("user_parent_eleve_liste_notes", {"idTrimestre": trimestre.id}) }}" title="Cliquez pour voir les notes par trimestre" class="btn btn-primary btn-outline-primary">
+										Ouvrir les notes
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

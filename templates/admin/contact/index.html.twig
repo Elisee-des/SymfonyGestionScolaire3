@@ -1,0 +1,83 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Choisissez qui contacter
+{% endblock %}
+
+{% block titre %}
+	Choisissez qui contacter
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_annee_creer") }}" title="Cliquez pour Creer une annee scolaire" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card p-3"><br>
+		<div class="card p-4"><br>
+			<div class="content">
+				<div class="card">
+					<form method="post" action="{{ path("admin_contact_parents") }}">
+						<div class="row">
+							<div class="col-md-6">
+								<a href="" class="btn btn-inverse btn-outline-inverse">Parents</a>
+							</div>
+							<div class="col-md-4">
+								<select name="annee" class="form-control input-sm">
+									<option value="" id="">Annee Academique</option>
+									{% for annee in annees %}
+										<option value="{{ annee.id }}">{{annee.nom}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-md-2">
+								<input type="submit" name="continue" class="btn btn-primary btn-sm float-right" value="Commencer"/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="card">
+					<form method="post" action="{{ path("admin_contact_acceuil") }}">
+						<div class="row">
+							<div class="col-md-6">
+								<a href="" class="btn btn-inverse btn-outline-inverse">Professeurs</a>
+							</div>
+							<div class="col-md-4">
+								<select name="annee" class="form-control input-sm">
+									<option value="" id="">Annee Academique</option>
+									{% for annee in annees %}
+										<option value="{{ annee.id }}">{{annee.nom}}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-md-2">
+								<input type="submit" name="continue" class="btn btn-primary btn-sm float-right" value="Commencer"/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="card">
+					<form method="post" action="{{ path("admin_contact_acceuil") }}">
+						<div class="row">
+							<div class="col-md-6">
+								<a href="" class="btn btn-inverse btn-outline-inverse">Surveillants</a>
+							</div>
+							<div class="col-md-4">
+								<select name="annee" class="form-control input-sm">
+									<option value="" id="">Annee Academique</option>
+									{% for annee in annees %}
+										<option value="{{ annee.id }}">{{ annee.nom }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-md-2">
+								<input type="submit" name="continue" class="btn btn-primary btn-sm float-right" value="Commencer"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

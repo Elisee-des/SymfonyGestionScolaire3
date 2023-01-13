@@ -1,0 +1,97 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+
+	Etat du Systeme scolaire de chaque annee academique
+{% endblock %}
+
+{% block titre %}
+	Etat du Systeme scolaire de chaque annee academique
+{% endblock %}
+{% block boutons %}
+	<form action="{{ path("admin_etat") }}" method="post" class="float-right form-inline">
+		<div class="form-group mx-sm-3 mb-2">
+			<select name="annee" id="" class="form-control form-select">
+				<option value="">Annee Academique</option>
+				{% for annee in annees %}
+					<option value="{{ annee.id }}" >{{ annee.nom }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		{# <div class="col-md-2">
+			<input type="submit" name="ok" class="btn btn-primary btn-sm float-right" value="Telecharger"/>
+		</div> #}
+		<button type="submit" name="ok" class="btn btn-primary mb-2">OK</button>
+	</form>
+{% endblock %}
+
+{% block body %}
+	<div class="card p-4"><br>
+		<div class="card-body">
+			<div class="content">
+				<div class="row">
+					<div class="col-6">
+						<div class="card p-4">
+							<em>
+								<h5>Total des Trimestres :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Eleves :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Classes :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Notes :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Abscences :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+						</div>
+					</div>
+
+					<div class="col-6">
+						<div class="card p-4">
+							<em>
+								<h5>Total des Surveillants :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Professeurs :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total des Parents :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total de la somme APE :
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+							<em>
+								<h5>Total de la scolarité:
+									<span class="badge badge-primary">0</span>
+								</h5>
+							</em>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+	{% block javascripts %}{% endblock %}

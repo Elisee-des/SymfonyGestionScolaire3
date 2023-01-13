@@ -1,0 +1,27 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Modifier l'inscription de l'eleve {{ eleve.nom }} {{ eleve.prenom }}
+{% endblock %}
+
+{% block titre %}
+	Modifier l'inscription de l'eleve {{ eleve.nom }} {{ eleve.prenom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_abscence_creer") }}" title="Cliquez pour faire une inscription" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<form method="POST" action="{{ path("admin_editer_inscription", {id: eleve.id}) }}">
+					{{ form_widget(form) }}
+				</form>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

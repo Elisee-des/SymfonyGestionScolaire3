@@ -1,0 +1,48 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Gestion des Classes par anneé
+{% endblock %}
+
+{% block titre %}
+	Gestion des classes par anneé
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("admin_classe_creer") }}" title="Cliquez pour creer une classe" class="btn btn-inverse btn-outline-inverse btn-actions float-right"><i class="ti-plus"></i></a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Nom</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for annee in annees %}
+							<tr>
+								<td>{{annee.nom}}</td>
+								<td>
+									{# <a
+										href="{{ path("admin_classe_editer", {"id": classe.id}) }}" class="btn btn-inverse btn-actions btn-outline-inverse">
+										Editer
+									</a> #}
+									<a
+										href="{{ path("admin_classe_liste_des_classes", {"id": annee.id}) }}" title="Voir les classes de cette anneé" class="btn btn-primary btn-outline-primary" >
+										<i class="ti-receipt"></i>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

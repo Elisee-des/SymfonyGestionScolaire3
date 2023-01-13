@@ -1,0 +1,45 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Liste des matieres de la classe de {{ classe.nom }} de {{ classe.annee.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste des matieres de la classe de {{ classe.nom }} de {{ classe.annee.nom }}
+{% endblock %}
+{% block boutons %}
+	<a href="{{ path("admin_note_ajout", {id: classe.id}) }}" title="Cliquez pour ajouter des notes a toute la classe en une action" class="btn btn-inverse btn-outline-inverse float-right"><i class="ti-notepad"></i></a>
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Matieres</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for matiere in matieres %}
+							<tr>
+								<td>{{matiere.nom}}</td>
+								{# <td>{{matiere.matiere}}</td> #}
+								<td>
+									<a href="{{ path("admin_note_liste_note", {"id": matiere.id}) }}" title="Cliquez pour voir les notes de cette matiere" class="btn btn-warning btn-outline-warning">
+										<i class="ti-menu-alt"></i>
+									</a>
+
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

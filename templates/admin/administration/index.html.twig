@@ -1,0 +1,51 @@
+{% extends "base.admin.html.twig" %}
+
+{% block title %}
+	Administration de la plateform
+{% endblock %}
+
+{% block titre %}
+	Administration de la plateform
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_eleve_creer") }}" title="Cliquez pour ajouter un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right">
+			<i class="ti-plus"></i>
+		</a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Titre</th>
+						</tr>
+						<tr>
+							<th>SousTitre</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="{{ path("admin_administration_titre") }}" title="Cliquez pour modifié les informations" class="btn btn-primary btn-outline-primary">
+									Modifié
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="{{ path("admin_administration_titre") }}" title="Cliquez pour modifié les informations" class="btn btn-primary btn-outline-primary">
+									Modifié
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

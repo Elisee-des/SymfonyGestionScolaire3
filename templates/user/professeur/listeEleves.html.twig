@@ -1,0 +1,47 @@
+{% extends "base.prof.html.twig" %}
+
+{% block title %}
+	Liste des eleves de la classe de {{ classe.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste des eleves de la classe de {{ classe.nom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_annee_creer") }}" title="Cliquez pour Ajouter un annee a un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Nom Prenom</th>
+							<th>Actions</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for eleve in eleves %}
+							<tr>
+								<td>{{eleve.nom}} {{eleve.prenom}}</td>
+								<td>
+									<a href="{{ path("user_professeur_contact_parent", {"idEleve": eleve.id}) }}" title="Aller voir le contact des parent de cet Eleve" class="btn btn-info btn-outline-info">
+										Parents
+									</a>
+									<a href="{{ path("user_professeur_liste_notes", {"idEleve": eleve.id}) }}" title="Aller voir la liste de vos éléves" class="btn btn-primary btn-outline-primary">
+										Notes
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

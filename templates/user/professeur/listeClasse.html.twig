@@ -1,0 +1,44 @@
+{% extends "base.prof.html.twig" %}
+
+{% block title %}
+	Liste de vos classe de l'annee academique {{ annee.nom }}
+{% endblock %}
+
+{% block titre %}
+	Liste de vos classe de l'annee academique {{ annee.nom }}
+{% endblock %}
+{% block boutons %}
+	{# <a href="{{ path("admin_annee_creer") }}" title="Cliquez pour Ajouter un annee a un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right"><i class="ti-plus"></i></a> #}
+{% endblock %}
+
+{% block body %}
+	<div class="card">
+		<div class="card-body">
+			<div class="content">
+				<table id="example" class="table table-striped nowrap" style="width:100%">
+					<thead>
+						<tr>
+							<th>Classes</th>
+							<th>Actions</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for classe in classses %}
+							<tr>
+								<td>{{classe.nom}}</td>
+								<td>
+									<a href="{{ path("user_professeur_liste_eleves", {"idClasse": classe.id}) }}" title="Aller voir la liste de vos éléves" class="btn btn-primary btn-outline-primary">
+										Voir les eleves
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
