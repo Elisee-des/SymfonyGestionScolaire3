@@ -39,7 +39,9 @@ class AdministrationController extends AbstractController
     {
 
 
-        return $this->render('admin/administration/index.html.twig');
+        return $this->render('admin/administration/index.html.twig', [
+            'administrationSite' => $administrationSiteRepository->findAll()[0],
+        ]);
     }
 
     /**
