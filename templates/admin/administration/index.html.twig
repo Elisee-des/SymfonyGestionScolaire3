@@ -8,41 +8,123 @@
 	Administration de la plateform
 {% endblock %}
 {% block boutons %}
-	{# <a href="{{ path("admin_eleve_creer") }}" title="Cliquez pour ajouter un eleve" class="btn btn-inverse btn-actions btn-outline-inverse float-right">
-			<i class="ti-plus"></i>
-		</a> #}
+	<a href="{{ path("admin_administration_creation") }}" title="Cliquez pour creer les elements du site" class="btn btn-inverse btn-outline-inverse float-right">
+		CREATION
+	</a>
 {% endblock %}
 
 {% block body %}
 	<div class="card">
 		<div class="card-body">
 			<div class="content">
-				<table id="example" class="table table-striped nowrap" style="width:100%">
-					<thead>
-						<tr>
-							<th>Titre</th>
-						</tr>
-						<tr>
-							<th>SousTitre</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<a href="{{ path("admin_administration_titre") }}" title="Cliquez pour modifié les informations" class="btn btn-primary btn-outline-primary">
-									Modifié
-								</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="{{ path("admin_administration_titre") }}" title="Cliquez pour modifié les informations" class="btn btn-primary btn-outline-primary">
-									Modifié
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="row">
+					<div class="col-6">
+						<div class="card">
+							<h5>Le titre</h5>
+							<div>
+								<a href="{{ path("admin_administration_titre") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le fonctionnement</h5>
+							<div>
+								<a href="{{ path("admin_administration_fonctionnement") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Titre1</h5>
+							<div>
+								<a href="{{ path("admin_administration_titre1") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Titre2</h5>
+							<div>
+								<a href="{{ path("admin_administration_titre2") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Titre3</h5>
+							<div>
+								<a href="{{ path("admin_administration_titre3") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le description1</h5>
+							<div>
+								<a href="{{ path("admin_administration_description1") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le description2</h5>
+							<div>
+								<a href="{{ path("admin_administration_description2") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Les contacts</h5>
+							<div>
+								<a href="{{ path("admin_administration_contact") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>La localisation</h5>
+							<div>
+								<a href="{{ path("admin_administration_localisation") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Qui somme nous</h5>
+							<div>
+								<a href="{{ path("admin_administration_qui_somme_nous") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="card">
+							<h5>Le Soustitre</h5>
+							<div>
+								<a href="{{ path("admin_administration_soustitre") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Sousfonctionnement</h5>
+							<div>
+								<a href="{{ path("admin_administration_sousfonctionnement") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le SousTitre1</h5>
+							<div>
+								<a href="{{ path("admin_administration_soustitre1") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le SousTitre2</h5>
+							<div>
+								<a href="{{ path("admin_administration_soustitre2") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le SousTitre3</h5>
+							<div>
+								<a href="{{ path("admin_administration_soustitre3") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Sousdescription1</h5>
+							<div>
+								<a href="{{ path("admin_administration_sousdescription1") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+						<div class="card">
+							<h5>Le Sousdescription2</h5>
+							<div>
+								<a href="{{ path("admin_administration_sousdescription2") }}" class="btn btn-inverse btn-outline-inverse">Editer</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

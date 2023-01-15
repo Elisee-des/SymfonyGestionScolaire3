@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\AdministrationSite;
+use App\Form\Administration\administrationSiteType;
 use App\Form\Administration\ContactType;
 use App\Form\Administration\description1Type;
 use App\Form\Administration\description2Type;
@@ -34,10 +35,39 @@ class AdministrationController extends AbstractController
     /**
      * @Route("/accueil", name="accueil")
      */
-    public function accueil(AdministrationSiteRepository $administrationSiteRepository): Response
+    public function accueil(AdministrationSiteRepository $administrationSiteRepository, Request $request): Response
     {
-        return $this->render('admin/administration/index.html.twig', [
-            'administrationSite' => $administrationSiteRepository,
+
+
+        return $this->render('admin/administration/index.html.twig');
+    }
+
+    /**
+     * @Route("/creationDuSite", name="creation")
+     */
+    public function AdmisistrationSite(Request $request, EntityManagerInterface $em): Response
+    {
+        $administrationSite = new AdministrationSite();
+
+        $form = $this->createForm(administrationSiteType::class, $administrationSite);
+
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($administrationSite);
+            $em->flush();
+
+            $this->addFlash(
+               'success',
+               'Creation avec success des elements du site'
+            );
+
+            return $this->redirectToRoute('admin_administration_accueil');
+
+        }
+
+        return $this->render('admin/administration/creation.html.twig', [
+            'form' => $form->createView(),
         ]);
     }
 
@@ -73,7 +103,7 @@ class AdministrationController extends AbstractController
     {
         $form = $this->createForm(soustitreType::class, $administrationSite);
 
-        
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

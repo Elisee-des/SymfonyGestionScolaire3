@@ -17,40 +17,29 @@ use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
 
 /**
- * @Route("/admin/contact", name="admin_contact_")
+ * @Route("/admin/contact", name="admin_")
  */
 class ContactController extends AbstractController
 {
     /**
-     * @Route("/", name="acceuil")
+     * @Route("/", name="contact")
      */
-    public function index(AnneeRepository $anneeRepository, Request $request): Response
+    public function index(): Response
     {
 
-        $annees = $anneeRepository->findBy([], ["id" => "DESC"]);
-
-        if (isset($_POST["continue"])) {
-            return $this->redirectToRoute('admin_contact_parents');
-        }
-
         return $this->render('admin/contact/index.html.twig', [
-            'annees' => $annees,
+            // 'annees' => $annees,
         ]);
     }
 
     /**
-     * @Route("/parents", name="parents")
+     * @Route("/", name="parent")
      */
-    public function contactParent(AnneeRepository $anneeRepository, Request $request, UserRepository $userRepository): Response
+    public function contactParent(): Response
     {
-        $idAnnee = $request->get("annee");
 
-        $annee = $anneeRepository->find($idAnnee);
-        
-        $parents = $userRepository->;
-
-        return $this->render('admin/contact/contactParents.html.twig', [
-            'annee' => $annee,
+        return $this->render('admin/contact/index.html.twig', [
+            // 'annees' => $annees,
         ]);
     }
 }
