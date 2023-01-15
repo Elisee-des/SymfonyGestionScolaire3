@@ -15,7 +15,9 @@ class titreType extends AbstractType
     {
         $builder
             ->add('titre', CkEditorType::class)
-            ->add('Modifié', SubmitType::class)
+            ->add('Modifié', SubmitType::class, [
+                "disabled" => true
+            ])
         ;
     }
 

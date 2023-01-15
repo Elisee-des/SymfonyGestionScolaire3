@@ -74,11 +74,11 @@ class AdministrationController extends AbstractController
     }
 
     /**
-     * @Route("/titre", name="titre")
+     * @Route("/editer/titre", name="titre")
      */
     public function titre(Request $request, AdministrationSite $administrationSite, EntityManagerInterface $em): Response
     {
-        $form = $this->createForm(titreType::class);
+        $form = $this->createForm(titreType::class, $administrationSite);
 
         $form->handleRequest($request);
 
