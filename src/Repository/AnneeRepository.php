@@ -42,12 +42,30 @@ class AnneeRepository extends ServiceEntityRepository
     public function getEtatByAnnee($idAnnee)
     {
         $connexion = $this->_em->getConnection();
-        $requete1 = "SELECT * FROM trimestre t WHERE t.annee_id=$idAnnee";
-        $resultat1 = $connexion->executeQuery($requete1);
+
+        $requete1 = "SELECT COUNT(trimestre.id) total FROM `trimestre` WHERE trimestre.annee_id=:idAnnee";
+        $resultat1 = $connexion->executeQuery($requete1, ["idAnnee" => $idAnnee]);
         $data1 = $resultat1->fetchAllAssociative();
+
+        $requete2 = "SELECT * FROM eleve e WHERE e.annee_id=:idAnnee";
+        $resultat2 = $connexion->executeQuery($requete2, ["idAnnee" => $idAnnee]);
+        $data2 = $resultat2->fetchAllAssociative();
+
+        $requete3 = "SELECT * FROM classe c WHERE c.annee_id=:idAnnee";
+        $resultat3 = $connexion->executeQuery($requete3, ["idAnnee"=>$idAnnee]);
+        $data3 = $resultat3->fetchAllAssociative();
+
+        $requete4 = "SELECT * FROM eleve e, note n WHERE e.annee_id=:idAnnee AND e.id = n.eleve_id";
+        $resultat4 = $connexion->executeQuery($requete4, ["idAnnee"=>$idAnnee]);
+        $data4 = $resultat4->fetchAllAssociative();
+
 
         return [
             "etat1" => $data1,
+            "etat2" => $data2,
+            "etat3"=>$data3,
+            "etat4"=>$data4,
+
         ];
     }
 
