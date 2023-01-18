@@ -18,25 +18,19 @@ class EtatController extends AbstractController
     {
         $annees = $anneeRepository->findAll();
 
-        // if (isset($_POST["ok"])) {
             $idAnnee = $request->get("annee");
 
             $data = $anneeRepository->getEtatByAnnee($idAnnee);
-
-            $totalTrimestre = $data["etat1"];
-            // dd($totalTrimestre);
-            $totalEleve = count($data["etat2"]);
-            $totalClasse = count($data["etat3"]);
-
-            // return $this->redirectToRoute('admin_etat');
-        // }
+            // dd($data["etat5"][0]);
 
         return $this->render('admin/etat/index.html.twig', [
             "annees" => $annees,
             // "idAnnee" => $idAnnee,
-            "totalTrimestre" => $totalTrimestre,
-            // "totalEleve" => $totalEleve,
-            // "totalClasse" => $totalClasse,
+            "totalEleve" => $data["etat2"][0],
+            "totalTrimestre" => $data["etat1"][0],
+            "totalClasse" => $data["etat3"][0],
+            "totalNote" => $data["etat4"][0],
+            "totalAbscence" => $data["etat5"][0],
 
         ]);
     }
