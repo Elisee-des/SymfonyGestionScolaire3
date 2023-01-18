@@ -64,6 +64,9 @@ class AnneeRepository extends ServiceEntityRepository
         $resultat5 = $connexion->executeQuery($requete5, ["idAnnee"=>$idAnnee]);
         $data5 = $resultat5->fetchAllAssociative();
 
+        $requete6 = "SELECT * FROM `user` WHERE user.annee_id=:idAnnee";
+        $resultat6 = $connexion->executeQuery($requete6, ["idAnnee"=>$idAnnee]);
+        $data6 = $resultat6->fetchAllAssociative();
         
 
 
@@ -73,6 +76,7 @@ class AnneeRepository extends ServiceEntityRepository
             "etat3"=> $data3,
             "etat4"=> $data4,
             "etat5"=> $data5,
+            "etat6"=> $data6,
 
         ];
     }
