@@ -35,6 +35,11 @@ class Matiere
      */
     private $classe;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, mappedBy="matiere", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();
@@ -104,4 +109,25 @@ class Matiere
         return $this;
     }
 
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setMatiere(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getMatiere() !== $this) {
+            $user->setMatiere($this);
+        }
+
+        $this->user = $user;
+
+        return $this;
+    }
 }

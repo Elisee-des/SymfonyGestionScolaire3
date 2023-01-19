@@ -23,20 +23,36 @@ class EtatController extends AbstractController
 
             $data = $anneeRepository->getEtatByAnnee($idAnnee);
 
-            $users = $data["etat6"];
+            // $users = $data["etat6"];
 
-            foreach ($users as $user) {
+            // $totalParent = 0;
+            // $totalProfesseur = 0;
+            // $totalSurveillant = 0;
+            // foreach ($users as $user) {
                 
-                $idUser = $user["id"];
-                $roles = $userRepository->find($idUser)->getRoles();
-                if(in_array("ROLE_SURVEILLANT", $roles))
-                {
-                    $surveillant = $userRepository->find($idUser)->getId();
-                    $surveillants[] = $surveillant;
-                }
+            //     $idUser = $user["id"];
+            //     $roles = $userRepository->find($idUser)->getRoles();
+            //     if(in_array("ROLE_SURVEILLANT", $roles))
+            //     {
+            //         $surveillant = $userRepository->find($idUser)->getId();
+            //         $totalSurveillant = $totalSurveillant +1;
+            //     }
+            //     elseif (in_array("ROLE_PROFESSEUR", $roles))
+            //     {
+            //         $professeur = $userRepository->find($idUser)->getId();
+            //         $totalProfesseur = $totalProfesseur + 1; 
+            //     }
+            //     elseif (in_array("ROLE_PARENT", $roles))
+            //     {
+            //         $parent = $userRepository->find($idUser)->getId();
+            //         $totalParent = $totalParent + 1;
+            //         $parents[] = $parent;
+            //     }
 
-                dd($surveillants);
-            }
+            // }
+
+
+            // dd($totalParent, $totalProfesseur, $totalSurveillant);
 
 
         return $this->render('admin/etat/index.html.twig', [
@@ -47,6 +63,8 @@ class EtatController extends AbstractController
             "totalClasse" => $data["etat3"][0],
             "totalNote" => $data["etat4"][0],
             "totalAbscence" => $data["etat5"][0],
+            "totalSurveillant" => $data["etat6"][0],
+            "totalApe" => $data["etat7"][0],
 
         ]);
     }

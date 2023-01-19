@@ -78,6 +78,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $isSurveillant;
 
     /**
+     * @ORM\OneToOne(targetEntity=Matiere::class, inversedBy="user", cascade={"persist", "remove"})
+     */
+    private $matiere;
+
+    /**
      * @ORM\ManyToMany(targetEntity=Classe::class, inversedBy="users")
      */
     private $classes;
@@ -85,6 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->eleves = new ArrayCollection();
+        $this->matieres = new ArrayCollection();
         $this->dateCreation = new \DateTime();
         $this->classes = new ArrayCollection();
     }
@@ -283,6 +289,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Matiere>
+     */
+    public function getMatieres(): Collection
+    {
+        return $this->matieres;
     }
 
     public function isIsSurveillant(): ?bool
