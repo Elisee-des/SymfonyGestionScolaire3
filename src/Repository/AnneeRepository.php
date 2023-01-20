@@ -64,15 +64,17 @@ class AnneeRepository extends ServiceEntityRepository
         $resultat5 = $connexion->executeQuery($requete5, ["idAnnee"=>$idAnnee]);
         $data5 = $resultat5->fetchAllAssociative();
 
-        $requete6 = "SELECT * FROM `user` WHERE user.annee_id=:idAnnee";
-        $resultat6 = $connexion->executeQuery($requete6, ["idAnnee"=>$idAnnee]);
-        $data6 = $resultat6->fetchAllAssociative();
+        // $requete6 = "SELECT * FROM `user` WHERE user.annee_id=:idAnnee";
+        // $resultat6 = $connexion->executeQuery($requete6, ["idAnnee"=>$idAnnee]);
+        // $data6 = $resultat6->fetchAllAssociative();
 
         $requete7 = "SELECT SUM(e.ape) total FROM eleve e  WHERE e.annee_id=:idAnnee";
         $resultat7 = $connexion->executeQuery($requete7, ["idAnnee"=>$idAnnee]);
         $data7 = $resultat7->fetchAllAssociative();
-        
 
+        $requete8 = "SELECT SUM(e.frais) total FROM eleve e  WHERE e.annee_id=:idAnnee";
+        $resultat8 = $connexion->executeQuery($requete8, ["idAnnee"=>$idAnnee]);
+        $data8 = $resultat8->fetchAllAssociative();
 
         return [
             "etat1" => $data,
@@ -80,9 +82,9 @@ class AnneeRepository extends ServiceEntityRepository
             "etat3"=> $data3,
             "etat4"=> $data4,
             "etat5"=> $data5,
-            "etat6"=> $data6,
+            // "etat6"=> $data6,
             "etat7"=> $data7,
-
+            "etat8"=> $data8,
         ];
     }
 

@@ -57,7 +57,7 @@ class InscriptionController extends AbstractController
     {
         $eleves = $cacheInterface->get("inscription_accueil", function(ItemInterface $itemInterface) use ($eleveRepository){
             $itemInterface->expiresAfter(700000);
-            return $eleveRepository->findBy([], ["id" => "DESC"]);
+            return $eleveRepository->findBy([], ["id" => "DESC"], 2);
         });
 
         $form = $this->createFormBuilder()

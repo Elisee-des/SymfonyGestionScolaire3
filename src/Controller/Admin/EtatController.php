@@ -52,7 +52,7 @@ class EtatController extends AbstractController
             // }
 
 
-            // dd($totalParent, $totalProfesseur, $totalSurveillant);
+            // dd($data["etat8"][0]);
 
 
         return $this->render('admin/etat/index.html.twig', [
@@ -63,8 +63,9 @@ class EtatController extends AbstractController
             "totalClasse" => $data["etat3"][0],
             "totalNote" => $data["etat4"][0],
             "totalAbscence" => $data["etat5"][0],
-            "totalSurveillant" => $data["etat6"][0],
+            // "totalSurveillant" => $data["etat6"][0],
             "totalApe" => $data["etat7"][0],
+            "totalFrais" => $data["etat8"][0],
 
         ]);
     }
